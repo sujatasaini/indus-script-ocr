@@ -90,6 +90,7 @@ def process(image_path):
     seal = region_proposal_extract_seal.crop_white(image_path)
     new_width, new_height = get_new_image_dimensions(seal)
     best_text_regions, updated_width, updated_height = get_best_text_regions(seal, new_width, new_height)
+    print(best_text_regions, updated_width, updated_height)
     symbols = symbol_segmentation.get_symbols(seal, best_text_regions, updated_width, updated_height)
     symbol_sequence = symbol_classification.process_symbols(symbols)
 
